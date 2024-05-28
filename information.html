@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Сайт для публикации комментариев</title>
+    <style>
+        .comment-box {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Добро пожаловать на мой сайт для публикации комментариев!</h1>
+    <form id="comment-form">
+        <textarea class="comment-box" placeholder="Напишите ваш комментарий здесь..."></textarea>
+        <button type="submit">Опубликовать комментарий</button>
+    </form>
+    <div id="comments-section">
+        <!-- Здесь будут отображаться комментарии -->
+    </div>
+    <script>
+        document.getElementById('comment-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var commentBox = document.querySelector('.comment-box');
+            var commentSection = document.getElementById('comments-section');
+            var newComment = document.createElement('p');
+            newComment.textContent = commentBox.value;
+            commentSection.appendChild(newComment);
+            commentBox.value = '';
+        });
+    </script>
+</body>
+</html>
